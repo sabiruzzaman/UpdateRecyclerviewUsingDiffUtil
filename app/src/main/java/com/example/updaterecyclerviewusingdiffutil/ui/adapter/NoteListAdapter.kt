@@ -30,8 +30,8 @@ class NoteListAdapter(val itemClickedCallBack: (Note) -> Unit) :
         fun bind(item: Note) {
 
             // data set in view
-            binding.title.text = item.title
-            binding.body.text = item.body
+            binding.titleTv.text = item.title
+            binding.noteTv.text = item.note
 
             // update item
             binding.root.setOnClickListener {

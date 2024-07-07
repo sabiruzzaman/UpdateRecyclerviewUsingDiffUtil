@@ -3,9 +3,7 @@
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
     <string name="title">Title</string>
-    <string name="body">Body</string>
     <string name="update">Update</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="no_data_found">No Data Found!</string>
+    <string name="note">Note</string>
 </resources>

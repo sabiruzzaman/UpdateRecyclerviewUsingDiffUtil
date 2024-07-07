@@ -35,29 +35,32 @@ class NoteEntryFragment(private val note: Note?) : DialogFragment(R.layout.fragm
             if (currentNote.id != 0) saveOrUpdateBtn.text = "Update"
             else saveOrUpdateBtn.text = "Save"
 
-            binding.title.setText(currentNote.title)
-            binding.body.setText(currentNote.body)
+            binding.titleTv.setText(currentNote.title)
+            binding.noteTv.setText(currentNote.note)
 
             saveOrUpdateBtn.setOnClickListener {
-                val titleText = binding.title.text.toString().trim()
-                val bodyText = binding.body.text.toString().trim()
+                val titleText = binding.titleTv.text.toString().trim()
+                val bodyText = binding.noteTv.text.toString().trim()
 
                 if (titleText.isEmpty() || bodyText.isEmpty()) {
-                    Toast.makeText(context, "Title and body cannot be empty", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, "Title and note cannot be empty.", Toast.LENGTH_SHORT).show()
                     return@setOnClickListener
                 }
 
                 currentNote.title = titleText
-                currentNote.body = bodyText
+                currentNote.note = bodyText
 
                 if (currentNote.id == 0) {
+                    // insert note into database
                     viewModel.insertNote(currentNote)
                 } else {
+                    // update note into database
                     viewModel.updateNote(currentNote)
                 }
                 dismiss()
             }
 
+            // Dialog dismiss
             cancelBtn.setOnClickListener {
                 dismiss()
             }
